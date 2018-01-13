@@ -2,14 +2,14 @@
 
 Library to check the status of contractors through service [http://npchk.nalog.ru/](http://npchk.nalog.ru/).
 
-# Installation
+## Installation
 
 ```rust
 extern crate npchk;
 
 ```
 
-# Example usage
+## Example usage
 
 ```rust
 extern crate chrono;

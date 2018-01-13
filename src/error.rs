@@ -20,7 +20,7 @@ impl fmt::Display for Error {
         match *self {
             Error::TooManyRecords => write!(
                 f,
-                "В запросе не может быть больше 10000 элементов"
+                "The request can not be more than 10,000 items"
             ),
             Error::FnsError(ref err_msg) => write!(f, "{}", err_msg),
             Error::ReqError(ref e) => fmt::Display::fmt(e, f),
@@ -37,10 +37,10 @@ impl stderror::Error for Error {
     fn description(&self) -> &str {
         match *self {
             Error::TooManyRecords => {
-                "В запросе не может быть больше 10000 элементов"
+                "The request can not be more than 10,000 items"
             }
             Error::FnsError(_) => {
-                "Сервис сообщил об ошибке обработки запроса"
+                "The service reported an error processing the request"
             }
             Error::ReqError(ref e) => e.description(),
             Error::RpcError(ref e) => e.description(),

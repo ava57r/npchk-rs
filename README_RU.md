@@ -2,14 +2,14 @@
 
 Библиотека для проверки статуса контрагентов через сервис [http://npchk.nalog.ru/](http://npchk.nalog.ru/).
 
-# Установка
+## Установка
 
 ```rust
 extern crate npchk;
 
 ```
 
-# Пример ипользования
+## Пример использования
 
 ```rust
 extern crate chrono;

@@ -20,15 +20,17 @@ pub use self::models::nds_response::NdsResponse;
 
 pub use self::transforms::FromElement;
 
+/// The connection point of the service
 const V2_API_RPC_PATH: &'static str = "http://npchk.nalog.ru:80/FNSNDSCAWS_2";
 const V2_API_REQUEST: &'static str = "http://ws.unisoft/FNSNDSCAWS2/Request";
 const V2_API_NAMESPACE: &'static str = "req";
 
-/// Проверяет контрагентов с помощью сервиса http://npchk.nalog.ru/
+/// Checks of counterparties through the service 
+/// (http://npchk.nalog.ru/)(http://npchk.nalog.ru/)
 pub fn check_fns(partners: Vec<Partner>) -> Result<NdsResponse> {
     use self::rpser::xml::BuildElement;
     use xmltree::Element;
-    
+
     if partners.len() > 10_000 {
         return Err(error::Error::TooManyRecords);
     }
@@ -48,7 +50,8 @@ pub fn check_fns(partners: Vec<Partner>) -> Result<NdsResponse> {
     Ok(NdsResponse::from_element(response.body)?)
 }
 
-/// Проверяет 1 - го контрагента с помощью сервиса http://npchk.nalog.ru/
+/// Checks the 1st of the counterparty using the service 
+/// (http://npchk.nalog.ru/)(http://npchk.nalog.ru/)
 pub fn check_fns_partner(p: Partner) -> Result<NdsResponse> {
     let mut partners: Vec<Partner> = vec![];
     partners.push(p);
@@ -56,7 +59,7 @@ pub fn check_fns_partner(p: Partner) -> Result<NdsResponse> {
     check_fns(partners)
 }
 
-/// Вызывает удаленную процедуру через протокол `SOAP`
+/// Calls a remote procedure through a Protocol `SOAP`
 fn call(method: rpser::Method) -> Result<rpser::Response> {
     let envelope = method.as_xml(V2_API_REQUEST, V2_API_NAMESPACE);
 

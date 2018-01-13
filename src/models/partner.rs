@@ -1,6 +1,7 @@
 use chrono::prelude::*;
 use std::borrow::Cow;
 
+/// Structure describes the data type, which is used by the server
 #[derive(Debug)]
 pub struct Partner<'a> {
     pub inn: Cow<'a, str>,

@@ -7,6 +7,7 @@ use chrono::ParseResult;
 
 use std::str::FromStr;
 
+/// The trai to convert the server response xml to structure
 pub trait FromElement {
     fn from_element(element: Element) -> Result<Self>
     where
