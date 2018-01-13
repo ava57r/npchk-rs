@@ -1,15 +1,15 @@
 # npchk-rs
 
-Library to check the status of contractors through service [http://npchk.nalog.ru/](http://npchk.nalog.ru/).
+Библиотека для проверки статуса контрагентов через сервис [http://npchk.nalog.ru/](http://npchk.nalog.ru/).
 
-# Installation
+# Установка
 
 ```rust
 extern crate npchk;
 
 ```
 
-# Example usage
+# Пример ипользования
 
 ```rust
 extern crate chrono;
@@ -29,5 +29,3 @@ fn main() {
     }
 }
 ```
-
-[README_RU.md](README_RU.md)
