@@ -45,9 +45,7 @@ impl fmt::Display for Error {
                 f,
                 "Expected to find element with specified type:
              \nname: {}\nexpected type: {}\ngiven type: {:?}",
-                name,
-                expected_type,
-                given
+                name, expected_type, given
             ),
             Error::ParseIntError {
                 ref name,

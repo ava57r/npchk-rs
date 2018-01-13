@@ -13,10 +13,7 @@ pub mod error;
 
 use std::result;
 
-use self::rpser::xml::BuildElement;
 use self::rpser::Method;
-
-use xmltree::Element;
 
 pub use self::models::partner::Partner;
 pub use self::models::nds_response::NdsResponse;
@@ -29,6 +26,9 @@ const V2_API_NAMESPACE: &'static str = "req";
 
 /// Проверяет контрагентов с помощью сервиса http://npchk.nalog.ru/
 pub fn check_fns(partners: Vec<Partner>) -> Result<NdsResponse> {
+    use self::rpser::xml::BuildElement;
+    use xmltree::Element;
+    
     if partners.len() > 10_000 {
         return Err(error::Error::TooManyRecords);
     }

@@ -1,7 +1,7 @@
 use reqwest;
 use rpser;
 use chrono;
-use std::{num, io, fmt, error as stderror};
+use std::{error as stderror, fmt, io, num};
 
 #[derive(Debug)]
 pub enum Error {

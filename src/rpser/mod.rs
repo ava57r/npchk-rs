@@ -101,12 +101,24 @@ pub enum RpcError {
         fault_string: String,
         fault_detail: Element,
     },
-    XmlError { error: self::xml::Error },
-    XmlTreeError { error: xmltree::ParseError },
-    ExpectedElementText { tag: String },
-    UnexpectedElement { tag: String },
-    ElementWasEmpty { name: String },
-    ElementNotFound { path: Vec<String> },
+    XmlError {
+        error: self::xml::Error,
+    },
+    XmlTreeError {
+        error: xmltree::ParseError,
+    },
+    ExpectedElementText {
+        tag: String,
+    },
+    UnexpectedElement {
+        tag: String,
+    },
+    ElementWasEmpty {
+        name: String,
+    },
+    ElementNotFound {
+        path: Vec<String>,
+    },
 }
 
 impl fmt::Display for RpcError {
@@ -119,9 +131,7 @@ impl fmt::Display for RpcError {
             } => write!(
                 f,
                 "Fault: {}\n{}\n{:?}",
-                fault_code,
-                fault_string,
-                fault_detail
+                fault_code, fault_string, fault_detail
             ),
             RpcError::XmlError { error: ref e } => fmt::Display::fmt(e, f),
             RpcError::ExpectedElementText { ref tag } => write!(f, "Expected element text {}", tag),
@@ -180,7 +190,6 @@ impl From<xmltree::ParseError> for RpcError {
 }
 
 pub type Result<T> = result::Result<T, RpcError>;
-
 
 #[cfg(test)]
 mod test {}
