@@ -9,6 +9,12 @@ keywords = ["nalog.ru"]
 readme = "README.md"
 license = "MIT"
 
+exclude = [
+    "appveyor.yml",
+    ".travis.yml",
+    ".gitignore",
+]
+
 [dependencies]
 xml-rs = "0.6"
 log = "0.3"
