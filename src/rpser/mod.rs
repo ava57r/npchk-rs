@@ -1,4 +1,4 @@
-//! Remote procedule call implementation and serialization to XML.
+//! Remote call procedure implementation and serialization to XML.
 
 pub mod xml;
 

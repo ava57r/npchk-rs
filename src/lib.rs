@@ -25,8 +25,8 @@ const V2_API_RPC_PATH: &'static str = "http://npchk.nalog.ru:80/FNSNDSCAWS_2";
 const V2_API_REQUEST: &'static str = "http://ws.unisoft/FNSNDSCAWS2/Request";
 const V2_API_NAMESPACE: &'static str = "req";
 
-/// Checks of counterparties through the service 
-/// (http://npchk.nalog.ru/)(http://npchk.nalog.ru/)
+/// Checks of counterparties through the service
+/// [http://npchk.nalog.ru/](http://npchk.nalog.ru/)
 pub fn check_fns(partners: Vec<Partner>) -> Result<NdsResponse> {
     use self::rpser::xml::BuildElement;
     use xmltree::Element;
@@ -50,8 +50,8 @@ pub fn check_fns(partners: Vec<Partner>) -> Result<NdsResponse> {
     Ok(NdsResponse::from_element(response.body)?)
 }
 
-/// Checks the 1st of the counterparty using the service 
-/// (http://npchk.nalog.ru/)(http://npchk.nalog.ru/)
+/// Checks the 1st of the counterparty using the service
+/// [http://npchk.nalog.ru/](http://npchk.nalog.ru/)
 pub fn check_fns_partner(p: Partner) -> Result<NdsResponse> {
     let mut partners: Vec<Partner> = vec![];
     partners.push(p);
