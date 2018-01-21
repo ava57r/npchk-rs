@@ -13,19 +13,19 @@ pub mod error;
 
 use std::result;
 
-use self::rpser::Method;
+use rpser::Method;
 
-pub use self::models::partner::Partner;
-pub use self::models::nds_response::NdsResponse;
+pub use models::partner::Partner;
+pub use models::nds_response::NdsResponse;
 
-pub use self::transforms::FromElement;
+pub use transforms::FromElement;
 
 /// The connection point of the service
 const V2_API_RPC_PATH: &'static str = "http://npchk.nalog.ru:80/FNSNDSCAWS_2";
 const V2_API_REQUEST: &'static str = "http://ws.unisoft/FNSNDSCAWS2/Request";
 const V2_API_NAMESPACE: &'static str = "req";
 
-/// Checks of counterparties through the service
+/// Checks of contractors through the service
 /// [http://npchk.nalog.ru/](http://npchk.nalog.ru/)
 pub fn check_fns(partners: Vec<Partner>) -> Result<NdsResponse> {
     use self::rpser::xml::BuildElement;
@@ -50,7 +50,7 @@ pub fn check_fns(partners: Vec<Partner>) -> Result<NdsResponse> {
     Ok(NdsResponse::from_element(response.body)?)
 }
 
-/// Checks the 1st of the counterparty using the service
+/// Checks the 1st of the contractor using the service
 /// [http://npchk.nalog.ru/](http://npchk.nalog.ru/)
 pub fn check_fns_partner(p: Partner) -> Result<NdsResponse> {
     let mut partners: Vec<Partner> = vec![];
