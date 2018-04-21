@@ -1,4 +1,6 @@
-# npchk-rs
+# npchk
+
+[![](https://img.shields.io/crates/v/npchk.svg)](https://crates.io/crates/npchk)
 
 Library to check the status of contractors through service [http://npchk.nalog.ru/](http://npchk.nalog.ru/).
 
